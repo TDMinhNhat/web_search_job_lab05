@@ -14,7 +14,10 @@
         <div class="text-center">
             <h1>Register Account</h1>
         </div>
-        <form action="" method="post">
+        <div class="container-fluid text-center">
+            <p class="text-danger" th:text="${status == null ? '' : status}"></p>
+        </div>
+        <form action="/auth-fe/register" method="post">
             <div class="container-fluid text-center d-flex justify-content-around align-items-center">
                 <label class="form-label col-3">Full Name:</label>
                 <input class="form-control" name="inputFullName" required />
@@ -46,6 +49,10 @@
             <div class="container-fluid text-center d-flex justify-content-around align-items-center">
                 <label class="form-label col-3">Country:</label>
                 <input class="form-control" name="inputCountry" type="number" required />
+            </div>
+            <div class="container-fluid text-center d-flex justify-content-around align-items-center">
+                <label class="form-label col-3">Number:</label>
+                <input class="form-control" name="inputNumber" required />
             </div>
             <div class="container-fluid text-center d-flex justify-content-around align-items-center">
                 <label class="form-label col-3">Zipcode:</label>

@@ -22,7 +22,7 @@ public class AddressResources implements IManagement<Address,Long> {
     @Autowired
     private AddressService as;
 
-    @PutMapping
+    @PostMapping
     @Override
     public ResponseEntity<Response> insert(@RequestBody Address address) {
         log.info("Calling insert address");
