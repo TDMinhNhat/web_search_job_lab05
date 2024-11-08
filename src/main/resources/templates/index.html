@@ -24,10 +24,9 @@
                     <a href="" class="text-center fw-bold text-danger fs-3">Search Job</a>
                 </span>
             </div>
-            <div class="d-flex align-items-center" th:switch="${account_login}">
-                <span th:case="null"></span>
-                <span th:case="*">
-                    <a href="/home-fe/admin" class="text-center fw-bold text-warning fs-3">Admin Area</a>
+            <div class="d-flex align-items-center" th:switch="${role}">
+                <span th:case="ADMIN">
+                    <a href="/home-fe/admin" class="text-center fw-bold text-success fs-3">Admin Area</a>
                 </span>
             </div>
             <div class="d-flex align-items-center" th:switch="${account_login}">

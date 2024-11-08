@@ -26,6 +26,7 @@ public class AuthenticateController {
         ModelAndView mv = new ModelAndView("index");
         Candidate target = am.checkLogin(email, password);
         request.getServletContext().setAttribute("account_login", target);
+        mv.addObject("role", target.getRole().toString());
         mv.addObject("account_login", target);
         return mv;
     }

@@ -18,23 +18,23 @@
         <div class="container-fluid">
             <div class="container-fluid d-flex">
                 <label class="form-label">ID Candidate:</label>
-                <label class="form-label" th:text="${candidate.id}"></label>
+                <label style="margin-left: 10px" class="form-label" th:text="${candidate.id}"></label>
             </div>
             <div class="container-fluid d-flex">
                 <label class="form-label">Candidate Dob:</label>
-                <label class="form-label" th:text='${candidate.dob}'></label>
+                <label style="margin-left: 10px" class="form-label" th:text='${candidate.dob}'></label>
             </div>
             <div class="container-fluid d-flex">
                 <label class="form-label">Candidate Full Name:</label>
-                <label class="form-label" th:text="${candidate.fullName}"></label>
+                <label style="margin-left: 10px" class="form-label" th:text="${candidate.fullName}"></label>
             </div>
             <div class="container-fluid d-flex">
                 <label class="form-label">Candidate phone:</label>
-                <label class="form-label" th:text="${candidate.phone}"></label>
+                <label style="margin-left: 10px" class="form-label" th:text="${candidate.phone}"></label>
             </div>
             <div class="container-fluid d-flex">
                 <label class="form-label">Candidate Address:</label>
-                <label class="form-label" th:text="${candidate.address}"></label>
+                <label style="margin-left: 10px" class="form-label" th:text="${candidate.address.street} + ' - ' + ${candidate.address.country} + ' - ' + ${candidate.address.zipcode}"></label>
             </div>
         </div>
     </div>

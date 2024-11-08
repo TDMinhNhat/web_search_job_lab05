@@ -1,6 +1,7 @@
 package dev.skyherobrine.app.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.skyherobrine.app.backend.enums.CandidateRole;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -44,11 +45,16 @@ public class Candidate {
     @NonNull
     private Address address;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CandidateRole role;
+
     @Column(nullable = false)
     private boolean status;
 
     @PrePersist
     public void prePersist() {
         status = true;
+        role = CandidateRole.USER;
     }
 }
