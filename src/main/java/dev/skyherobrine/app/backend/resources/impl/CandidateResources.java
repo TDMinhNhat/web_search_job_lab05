@@ -3,9 +3,12 @@ package dev.skyherobrine.app.backend.resources.impl;
 import dev.skyherobrine.app.backend.dto.CandidateAccountDTO;
 import dev.skyherobrine.app.backend.exceptions.EntityIdNotFoundException;
 import dev.skyherobrine.app.backend.models.Candidate;
+import dev.skyherobrine.app.backend.models.CandidateSkill;
 import dev.skyherobrine.app.backend.models.Response;
+import dev.skyherobrine.app.backend.models.Skill;
 import dev.skyherobrine.app.backend.resources.IManagement;
 import dev.skyherobrine.app.backend.services.impl.CandidateService;
+import dev.skyherobrine.app.backend.services.impl.CandidateSkillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -145,6 +148,24 @@ public class CandidateResources implements IManagement<Candidate,Long> {
                 HttpStatus.OK.value(),
                 "Get all candidates successfully",
                 cs.getAll(page)
+        ));
+    }
+
+    @GetMapping("/{id}/skills")
+    public ResponseEntity<Response> getCandidateSkills(@PathVariable("id") Long canId) {
+        return ResponseEntity.ok(new Response(
+                HttpStatus.OK.value(),
+                "Get all candidate skills successfully",
+                cs.getCandidateSkill(canId)
+        ));
+    }
+
+    @GetMapping("/{id}/experiences")
+    public ResponseEntity<Response> getCandidateExperience(@PathVariable("id") Long canId) {
+        return ResponseEntity.ok(new Response(
+                HttpStatus.OK.value(),
+                "Get all candidate experiences successfully",
+                cs.getCandidateExperience(canId)
         ));
     }
 }

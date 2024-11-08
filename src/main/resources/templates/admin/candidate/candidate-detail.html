@@ -39,6 +39,9 @@
         </div>
     </div>
     <div class="container-fluid">
+        <div class="text-center">
+            <h1>Skill</h1>
+        </div>
         <table class="container-fluid table table-hover text-center">
             <thead>
             <tr>
@@ -47,11 +50,34 @@
                 <td>Skill Type</td>
             </tr>
             </thead>
-            <tbody th:each="skill : ${candidate.skills}">
+            <tbody th:each="skill : ${candidate_skills}">
             <tr>
                 <td th:text="${skill.id.skill.skillName}"></td>
                 <td th:text="${skill.skillLevel}"></td>
                 <td th:text="${skill.id.skill.type}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Experience</h1>
+        </div>
+        <table class="container-fluid table table-hover text-center">
+            <thead>
+            <tr>
+                <td>Company Name</td>
+                <td>Role</td>
+                <td>From Date</td>
+                <td>To Date</td>
+            </tr>
+            </thead>
+            <tbody th:each="experience : ${candidate_experiences}">
+            <tr>
+                <td th:text="${experience.companyName}"></td>
+                <td th:text="${experience.role}"></td>
+                <td th:text="${experience.fromDate}"></td>
+                <td th:text="${experience.toDate}"></td>
             </tr>
             </tbody>
         </table>

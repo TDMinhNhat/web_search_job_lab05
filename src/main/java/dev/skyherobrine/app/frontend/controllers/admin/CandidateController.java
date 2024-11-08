@@ -21,6 +21,8 @@ public class CandidateController {
         ModelAndView mv = new ModelAndView("admin/candidate/candidate-detail");
         Candidate target = cm.getCandidateDetail(id);
         mv.addObject("candidate", target);
+        mv.addObject("candidate_skills", cm.getCandidateSkill(id));
+        mv.addObject("candidate_experiences", cm.getCandidateExperiences(id));
         return mv;
     }
 }

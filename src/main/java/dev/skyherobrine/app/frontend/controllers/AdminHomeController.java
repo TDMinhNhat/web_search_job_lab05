@@ -44,7 +44,8 @@ public class AdminHomeController {
         for(int i = 0; i <= pageSize; ++i) {
             pages.add((i + 1) + "");
         }
-        mv.addObject("candidates", cm.getCandidatesForPage(Integer.parseInt(page)));
+
+        mv.addObject("candidates", cm.getCandidatesForPage(Integer.parseInt(page) == 0 ? 0 : Integer.parseInt(page) - 1));
         mv.addObject("pages", pages);
         return mv;
     }
