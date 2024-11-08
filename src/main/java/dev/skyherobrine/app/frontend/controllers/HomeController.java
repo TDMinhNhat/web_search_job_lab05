@@ -24,4 +24,14 @@ public class HomeController {
         request.getServletContext().setAttribute("account_login", null);
         return "redirect:/";
     }
+
+    @GetMapping("/register")
+    public String directToRegisterAccount() {
+        return "register";
+    }
+
+    @GetMapping("/forgot-pass")
+    public String directToForgotPass() {
+        return "forget_pass";
+    }
 }

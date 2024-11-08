@@ -40,12 +40,12 @@ public class JobSkillService implements IServices<JobSkill, JobSkillId> {
 
     @Override
     public void delete(JobSkillId jobSkillId) throws EntityIdNotFoundException {
-        jsr.delete(getById(jobSkillId).orElseThrow(() -> new EntityIdNotFoundException("JobId: " + jobSkillId.getJobId() + " SkillId: " + jobSkillId.getSkillId())));
+        jsr.delete(getById(jobSkillId).orElseThrow(() -> new EntityIdNotFoundException("JobId: " + jobSkillId.getJob().getId() + " SkillId: " + jobSkillId.getSkill().getId())));
     }
 
     @Override
     public Optional<JobSkill> getById(JobSkillId jobSkillId) throws EntityIdNotFoundException {
-        return Optional.of(jsr.findById(jobSkillId).orElseThrow(() -> new EntityIdNotFoundException("JobId: " + jobSkillId.getJobId() + " SkillId: " + jobSkillId.getSkillId())));
+        return Optional.of(jsr.findById(jobSkillId).orElseThrow(() -> new EntityIdNotFoundException("JobId: " + jobSkillId.getJob().getId() + " SkillId: " + jobSkillId.getSkill().getId())));
     }
 
     @Override
