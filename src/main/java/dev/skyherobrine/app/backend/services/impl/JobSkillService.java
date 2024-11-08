@@ -52,4 +52,8 @@ public class JobSkillService implements IServices<JobSkill, JobSkillId> {
     public Iterator<JobSkill> getAll() {
         return jsr.findAll().iterator();
     }
+
+    public List<JobSkill> getAllJobsBySkill(Long skillId) {
+        return jsr.findById_Skill_Id(skillId);
+    }
 }

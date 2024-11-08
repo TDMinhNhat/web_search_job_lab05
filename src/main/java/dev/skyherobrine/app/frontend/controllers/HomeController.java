@@ -8,15 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/home-fe")
 public class HomeController {
-
     @GetMapping("/admin")
     public String directToAdminPage() {
         return "admin/admin-home";
-    }
-
-    @GetMapping("/login")
-    public String directToLogin() {
-        return "login";
     }
 
     @GetMapping("/logout")

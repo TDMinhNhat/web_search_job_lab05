@@ -7,6 +7,7 @@ import dev.skyherobrine.app.backend.resources.IManagement;
 import dev.skyherobrine.app.backend.services.impl.JobSkillService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,5 +54,14 @@ public class JobSkillResources implements IManagement<JobSkill, JobSkillId> {
     @Override
     public ResponseEntity<Response> getAll() {
         return null;
+    }
+
+    @GetMapping("/jobs/{skillId}")
+    public ResponseEntity<Response> getAllJobsBySkill(@PathVariable("skillId") Long skillId) {
+        return ResponseEntity.ok(new Response(
+                HttpStatus.OK.value(),
+                "Get all jobs by skill id",
+                jss.getAllJobsBySkill(skillId)
+        ));
     }
 }

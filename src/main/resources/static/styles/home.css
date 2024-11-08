@@ -1,0 +1,19 @@
+.skill-item {
+    text-decoration: none;
+    text-underline: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.skill-item:hover {
+    background-color: green;
+}
+
+#skill-item-active {
+    background-color: yellow;
+    color: black;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Job - Login Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container-fluid text-center d-flex justify-content-around bg-primary bg-opacity-50">
+        <div class="d-flex align-items-center">
+            <img src=""/>
+            <span class="text-center fw-bold text-primary">
+                    <a href="#" class="text-center fw-bold text-dark fs-3">Home Page</a>
+                </span>
+        </div>
+        <div class="d-flex align-items-center">
+                <span>
+                    <a href="" class="text-center fw-bold text-danger fs-3">Search Job</a>
+                </span>
+        </div>
+        <div class="d-flex align-items-center" th:switch="${role}">
+                <span th:case="ADMIN">
+                    <a href="/home-fe/admin" class="text-center fw-bold text-success fs-3">Admin Area</a>
+                </span>
+        </div>
+        <div class="d-flex align-items-center">
+            <span>
+                <a href="/home-fe/logout" class="text-center fw-bold text-warning fs-3">Logout Account</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Base on the skills that the person have and help them find the company with their skills -->
+    <div>
+
+    </div>
+
+    <div class="container-fluid mt-3">
+        <div class="text-center">
+            <h3>Choose a skill to find the job suitable</h3>
+        </div>
+        <div class="container-fluid d-flex flex-wrap align-items-center justify-content-evenly mt-2">
+            <span th:each="skill : ${skills}">
+                <a class="skill-item" th:id="${jobSkills == null || jobSkills.getFirst().id.skill.skillName == skill.skillName ? '' : 'skill-item-active'}"
+                   th:text="${skill.skillName}" th:href="@{'/user-fe/skill/jobs/' + ${skill.id}}"></a>
+            </span>
+        </div>
+        <div class="container-fluid text-center">
+            <div class="container-fluid text-center">
+                <h4 class="text-center">All Companies are hire</h4>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Company Name</td>
+                        <td>Job Name</td>
+                        <td>Skill Type</td>
+                        <td>Skill Level</td>
+                    </tr>
+                </thead>
+                <tbody th:each="jobSkill : ${jobSkills}">
+                    <tr>
+                        <td th:text="${jobSkill.id.job.company.compName}"></td>
+                        <td th:text="${jobSkill.id.job.jobName}"></td>
+                        <td th:text="${jobSkill.id.skill.type}"></td>
+                        <td th:text="${jobSkill.skillLevel}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
