@@ -1,7 +1,7 @@
 package dev.skyherobrine.app.frontend.controllers.admin;
 
 import dev.skyherobrine.app.backend.models.Candidate;
-import dev.skyherobrine.app.frontend.models.skill.CandidateModel;
+import dev.skyherobrine.app.frontend.models.CandidateModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

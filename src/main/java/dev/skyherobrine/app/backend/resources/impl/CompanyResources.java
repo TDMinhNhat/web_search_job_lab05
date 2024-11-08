@@ -6,6 +6,7 @@ import dev.skyherobrine.app.backend.resources.IManagement;
 import dev.skyherobrine.app.backend.services.impl.CompanyService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,6 +52,11 @@ public class CompanyResources implements IManagement<Company,Long> {
     @GetMapping
     @Override
     public ResponseEntity<Response> getAll() {
-        return null;
+        log.info("Calling get all companies");
+        return ResponseEntity.ok(new Response(
+                HttpStatus.OK.value(),
+                "Get all companies successfully",
+                cs.getAll()
+        ));
     }
 }

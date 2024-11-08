@@ -1,4 +1,4 @@
-package dev.skyherobrine.app.frontend.models.skill;
+package dev.skyherobrine.app.frontend.models;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

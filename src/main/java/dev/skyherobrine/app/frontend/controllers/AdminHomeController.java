@@ -1,10 +1,10 @@
 package dev.skyherobrine.app.frontend.controllers;
 
-import dev.skyherobrine.app.backend.enums.SkillLevel;
 import dev.skyherobrine.app.backend.enums.SkillType;
 import dev.skyherobrine.app.backend.models.Candidate;
 import dev.skyherobrine.app.frontend.models.AdminHomeModel;
-import dev.skyherobrine.app.frontend.models.skill.CandidateModel;
+import dev.skyherobrine.app.frontend.models.CandidateModel;
+import dev.skyherobrine.app.frontend.models.CompanyModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +24,8 @@ public class AdminHomeController {
     private AdminHomeModel ahm;
     @Autowired
     private CandidateModel cm;
+    @Autowired
+    private CompanyModel cpm;
 
     @GetMapping("/skill")
     public ModelAndView directToSkillManagement(ModelAndView mv) {
@@ -53,6 +55,7 @@ public class AdminHomeController {
     @GetMapping("/company")
     public ModelAndView directToCompanyManagement(ModelAndView mv) {
         mv.setViewName("admin/company");
+        mv.addObject("companies", cpm.getAllCompanies());
         return mv;
     }
 }
